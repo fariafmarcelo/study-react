@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react' // biblioteca padrão do react
+import ReactDom from 'react-dom' // classe para renderizar ao usuário
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// importa o componente criado
+import Jogo from './componentes/Jogo'
+import Estadio from './componentes/Estadio'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// quando usamos dois ou mais componentes precisamos de um elemento pai
+// ReactDom.render(
+//     <div>
+//         <Jogo/> <Estadio/>
+//     </div>, document.getElementById("root"))
+
+// caso não queiramos um componente html como pai, podemos utilizar React.Fragment
+
+import {BomDia, BoaTarde, BoaNoite} from './componentes/Saudacoes'
+import Saudacoes from './componentes/Saudacoes'
+
+ReactDom.render(
+    <React.Fragment>
+        <Jogo timeA="Sesi Franca" timeB="Flamengo"/>
+        <Estadio nome="Pedrocão"/>
+        <BomDia timeA="Sesi Franca"/>
+        <BoaTarde timeB="Flamengo"/>
+        <BoaNoite nome="Pedrocão"/>
+        <Saudacoes.BomDia timeA="Sesi Franca" />
+        <Saudacoes.BoaTarde timeB="Flamengo" />
+        <Saudacoes.BoaNoite nome="Pedrocao" />
+    </React.Fragment>, document.getElementById("root")
+)
